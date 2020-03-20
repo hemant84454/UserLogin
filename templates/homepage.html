@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'interface.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+ 
+
+<div class='container' align='center'>
+  
+  <h2>Welcome to User Registration Portal</h2><br>
+  
+   <a class="btn btn-warning" href="{% url 'Profile:signup' %}" role="button">SIGN UP</a><br><br>
+  <a class="btn btn-success" href="{% url 'Profile:login' %}" role="button">SIGN IN</a><br><br>
+  
+
+</body>
+
+  
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    <div align="center" >
+    <h1> LogIn Page</h1><hr>
+    
+
+    <form action="" method="POST" >
+        {% csrf_token %}
+        Email:<input type="text" name="email"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        <button type="submit"> <span>LogIn</span> </button><br>
+        <a href="{% url 'Profile:forgot' %}"> Forgot Password</a><br>
+        <a href="{% url 'Profile:signup' %}"> don't have an account Resgister here</a>
+
+
+    </form>
+</div>
+</body>
+</html>

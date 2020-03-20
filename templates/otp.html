@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+  {%block body_block%}
+<div align='center'>
+    <h2>Please Enter One Time Password</h2><hr><br>
+    <form method="POST"  action="{% url 'Profile:activate' user.uuid %}">
+        {%csrf_token%}
+        Otp<input type="number" name="otp" required><br><br>
+        
+        <input type="submit" name="send">
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+      {%block body_block%}
+      <div align='center'>
+        <h1>Update User Information</h1><hr>
+        <form method='POST'>
+          {%csrf_token%}
+          First Name:<input type="text" name='firstName' ><br><br>
+          Last Name:<input type="text" name='lastName' ><br><br>
+          Email:<input type='text' name='email'><br><br>
+          <input type="submit" class='btn btn-primary btn-lg' value="UPDATE RECORD"><br><br>
+          <a href="/" class="btn btn-warning">Back</a>
+        </form>
+
+      </div>
+       
+      {%endblock%}
+
+  

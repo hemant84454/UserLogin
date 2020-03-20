@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///home/administrator/Desktop/m2/signup.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Registration</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./signup_files/bootstrap.min.css">
+    <script type="text/javascript" async="" src="./signup_files/recaptcha__en.js"></script><script src="./signup_files/jquery.min.js"></script>
+    <script src="./signup_files/bootstrap.min.js"></script>
+
+    <link href="file://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="file://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="file://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="file://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="file://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="./signup_files/api.js"></script>
+
+
+    <script type="text/javascript">
+         var code;
+        function createCaptcha() {
+            //clear the contents of captcha div first 
+            document.getElementById('captcha').innerHTML = "";
+            var charsArray =
+                "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+            var lengthOtp = 6;
+            var captcha = [];
+            for (var i = 0; i < lengthOtp; i++) {
+                //below code will not allow Repetition of Characters
+                var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+                if (captcha.indexOf(charsArray[index]) == -1)
+                    captcha.push(charsArray[index]);
+                else i--;
+            }
+            var canv = document.createElement("canvas");
+            canv.id = "captcha";
+            canv.width = 120;
+            canv.height = 40;
+            var ctx = canv.getContext("2d");
+            ctx.font = "25px Georgia";
+            ctx.strokeText(captcha.join(""), 0, 30);
+            //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+            code = captcha.join("");
+            document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+        }
+        function validateCaptcha() {
+            event.preventDefault();
+            debugger
+            if (document.getElementById("cpatchaTextBox").value == code) {
+                location.href = "{% url 'Profile:signup' %}";
+            } else {
+                alert("Invalid Captcha. try Again");
+                createCaptcha();
+            }
+        }
+    </script>
+    <style>
+     body{
+        background-image: url(image1.jpg);
+        text-align: center;
+        background-repeat: no-repeat;
+        height:auto;
+        max-width:100%;
+        background-size: cover;
+    }
+</style>
+
+    </head>
+    <body onload="createCaptcha()">
+
+    <div class="container" style="width: 45%; background-color: rgb(203, 215, 219); margin-top: 2%;">
+        <form class="form-horizontal" onsubmit="validateCaptcha()" method="POST">
+            <h2>Registration Form</h2>
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label" style="text-align: left;">First Name</label>
+                <div class="col-sm-9">
+                    <input type="hidden" id="id" value="18">
+                    <input type="text" id="firstName" placeholder="First Name" class="form-control" pattern="[A-Z][a-z]{2,20}" autofocus="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label" style="text-align: left;">Last Name</label>
+                <div class="col-sm-9">
+                    <input type="text" id="lastName" placeholder="Last Name" class="form-control" pattern="[A-Z][a-z]{2,20}" autofocus="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label" style="text-align: left;">Email* </label>
+                <div class="col-sm-9">
+                    <input type="email" id="email" placeholder="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" required>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label" style="text-align: left;">Password*</label>
+                <div class="col-sm-9">
+                    <input type="password" id="password" placeholder="Password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <br><label for="captcha" class="col-sm-3 control-label" style="text-align: left;">Text Captcha*</label>
+                <div class="form-inline col-sm-9">
+                    <div id="captcha">
+                    </div>&nbsp;
+                    <input required type="text" placeholder="Captcha" id="cpatchaTextBox" class="form-control" />&nbsp;&nbsp;
+                    <i class="fa fa-refresh"type="button" value="Refresh" onclick="createCaptcha();"></i>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <input type="checkbox">I agree with terms and Conditions <br>
+                    <input type="checkbox">I agree with Privacy and Policy
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <button type="submit"class="btn btn-primary center-block" onclick="alert(ValidCaptcha());">Register</button>
+            </div>  <br>            
+        </form>   <!-- /form -->
+            </div><!-- ./container -->
+<br><br>
+
+</body>
+</html>

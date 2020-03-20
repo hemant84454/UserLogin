@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'interface.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<div class="topnav">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+    <a style="float: right;" class="active" href="{% url 'Profile:logout' %}">LOG OUT</a>
+  <div class="search-container">
+       <form action="">
+        <input style="width: max-content;" type="text" id="sbar" placeholder="Search..." name="search"  onkeyup="search_animal()" >
+       
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>  
+</div>
+<div class="header">
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar">
+      
+    </div>
+  </div>  
+</div>
+{% block body_block %}
+{% endblock %}
+
+</body>
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  function myFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
+
+
+  // JavaScript code 
+function search_animal() { 
+    let input = document.getElementById('sbar').value 
+    input=input.toLowerCase(); 
+    let x = document.getElementsByClassName('animals'); 
+      
+    for (i = 0; i < x.length; i++) {  
+        if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+            x[i].style.display="none"; 
+        } 
+        else { 
+            x[i].style.display="list-item";                  
+        } 
+    } 
+} 
+  </script>
+
+
+
+
+</html>

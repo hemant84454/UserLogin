@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{%block body_block%}
+<div align='center'>
+  <h1>User's Info Portal </h1><br>
+  <h1>User DashBoard</h1><br>
+  <table border='2' id="customers" >
+    <thead>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th> USER EMAIL</th>
+      <th>ACTION</th>
+    
+   
+    </thead>
+   
+    <tr><td>{{firstName}}</td>
+      <td>{{lastName}}</td>
+      <td>{{email}}</td>
+     
+      <!-- <td> <a href='update/{{e.id}}'>UPDATE</a> <a href='delete/{{e.id}}'>DELETE</a> </td> -->
+     
+  
+     
+      <!-- <td> <a href='update/{{e.id}}'>UPDATE</a> <a href='delete/{{e.id}}'>DELETE</a> </td> -->
+      <td><a href="{% url 'Profile:update' uuid %}">UPDATE</a>
+        <a href='/delete/{{user.uuid}}' ... onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></td>
+    </tr>
+  
+  </table><br><br>
+  <a href="{% url 'Profile:change_password' %}"> <button class="btn btn-primary center-block"  type="button"> Reset Password</button></a>
+  
+
+</div>
+{%endblock%}

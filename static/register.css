@@ -1,0 +1,113 @@
+body {
+    background: url('img/homeback.jpg') fixed;
+   background-size: cover;
+}
+
+*[role="form"] {
+   max-width: 530px;
+   padding: 15px;
+   margin: 0 auto;
+   border-radius: 0.3em;
+   opacity: 0.9;
+   background-color: rgb(149, 238, 168);
+}
+
+*[role="form"] h2 { 
+   font-family: 'Open Sans' , sans-serif;
+   font-size: 40px;
+   font-weight: 600;
+   color: #000000;
+   margin-top: 5%;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 4px;
+}
+form.form-horizontal {
+   margin: auto;
+
+}
+.form-group {
+   padding: 10px;
+}
+
+input#firstName {
+   width: 297px;
+   border-radius: 2px;
+  
+}
+/* textarea#Address{
+   width:297px;
+   height: 100px;
+   margin-left: 204px;
+   margin-top: -10px;
+} */
+button.btn.btn-primary.btn-block {
+      margin-left: 200px;
+   width: 105px;
+}
+input#dob {
+   width: 297px;
+   
+}
+.input-group {
+   margin-left: 5px;
+   padding: 3px;
+}
+.form-check-label {
+   margin-left: 10px;
+}
+
+.form-group label{
+   display: inline-block;
+   width: 200px;;
+
+}
+.form-group input{
+   display: inline-block;
+}
+#in{
+   margin-left: 152px;
+
+}
+#pc{
+   width: 297px;
+}
+#mainCaptcha{
+   width: 220px;
+   margin-left: 200px;
+
+}
+#txtInput{
+   width: 220px;
+   margin-left: 200px;
+
+}
+#first{
+   width: 70px;
+}
+
+
+#ph{
+   width: 235px;
+}
+#pcm{
+   width: 59px;
+}
+#password{
+   width: 297px;
+}
+#confirmpassword{
+   width: 297px;
+}
+.form-group-10{
+   margin-left: 40%;
+}
+
+
+
+
+
+
+
+
+
